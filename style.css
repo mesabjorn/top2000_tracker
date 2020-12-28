@@ -1,0 +1,19 @@
+body{
+	font-family:sans-serif;
+}
+
+div.entry:nth-child(even) {background: #CCC}
+div.entry:nth-child(odd) {background: #FFF}
+
+#playlist div.entry[current="1"]{
+	background: #dc3545;
+	color:white;
+}
+
+.row{
+	padding-left:25px;
+	padding-top:25px;
+	padding-bottom:25px;	
+}
+
+	

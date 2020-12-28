@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<!--<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script><-->
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+ <!-- Add Firebase products that you want to use -->  
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script type="text/javascript" src="top2000.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.3"></script>
+<link rel="stylesheet" href="style.css">
+
+<script>
+	document.addEventListener("DOMContentLoaded", function (event) {
+	
+		let  config = {
+				apiKey: "AIzaSyBPw5M8xysbk6oJo-9VNh_LpXd_Xhf1Ts0",
+				authDomain: "myfirstproject-8ceb7.firebaseapp.com",
+				databaseURL: "https://myfirstproject-8ceb7.firebaseio.com",
+				storageBucket: "gs://myfirstproject-8ceb7.appspot.com",
+				messagingSenderId: "1091552206789"
+			};
+			firebase.initializeApp(config);
+
+			// Get a reference to the database service
+			var database = firebase.database();
+			
+			Top2000 = new Top2000();
+	});	
+</script>
+</head>
+<body>
+<div class="w-100" id="playlist"></div>
+
+  
+</body>
+</html>
