@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Top 2000 follower",
+  "description": "Follows whats playing on top2000.",
+  "version": "1.00",
+
+  "browser_action": {
+    
+    "default_title": "Top2000"
+  },  
+  "content_scripts": [
+    {
+      "matches": ["https://www.nporadio2.nl/online-radio-luisteren/gedraaid"],
+      "js": [
+		"firebase-app.js",
+		"firebase-database.js",
+		"firebase.js",
+        "main.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": ["activeTab","tabs"]
+}
