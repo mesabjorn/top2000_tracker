@@ -1,2 +1,2 @@
 *.xlsx
-./web/firebase.js
+/web/firebase.js
