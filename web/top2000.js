@@ -1,6 +1,5 @@
 class Top2000{
-	
-		constructor(){
+	constructor(){
 			this.loadList("2020.json").then((d)=>{
 				console.log("list loaded");
 				this.r = /[\s!@#$%^&*().,-/\\\']/g;
@@ -199,9 +198,11 @@ function performFuzzySearch(list, pattern,keys){
 	};
 
 	
-	function detectWithFuzzy(a,t){		
+	function detectWithFuzzy(a,t=""){
 		let query = `${a} ${t}`;
-		
+		if(t.length == 0){
+			 query = a;
+		}
 		let alist = performFuzzySearch(Top2000.top2000.slice(Top2000.endind,Top2000.startind), query,["SONGARTIST"]);
 		
 		if(alist.length>0){
@@ -213,4 +214,39 @@ function performFuzzySearch(list, pattern,keys){
 			return false;
 		}
 		
+	}
+
+// Elements
+document.getElementById('search-fab').addEventListener('click',displaySearchbar);
+const searchFabIcon = document.getElementById('search-fab-icon')
+const searchBar = document.getElementById("search-bar");
+
+const searchBox = document.getElementById('search-box')
+searchBox.addEventListener('input', searchAll)
+
+function displaySearchbar() {
+		if (searchBar.style.display === "block") {
+			searchBar.style.display = "none";
+			searchFabIcon.classList.add("fa-search")
+			searchFabIcon.classList.remove("fa-times")
+			searchBar.classList.remove("trans-in-el");
+			console.log("none!")
+		} else {
+			searchBar.style.display = "block";
+			searchFabIcon.classList.add("fa-times")
+			searchFabIcon.classList.remove("fa-search")
+			searchBar.classList.add("trans-in-el");
+			searchBox.focus();
+			console.log("block!")
+		}
+	}
+
+	function searchAll(e){
+		console.log(e.target.value)
+		let detectedInFind = detectWithFuzzy(e.target.value);
+
+		current = document.getElementById("playlist").childNodes[1999-(detectedInFind.refIndex+Top2000.endind)];
+		Top2000.index=1999-(detectedInFind.refIndex+Top2000.endind);
+		document.getElementById('playlist').childNodes[Math.max(0,Top2000.index-1)].scrollIntoView();
+
 	}

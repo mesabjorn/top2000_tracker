@@ -10,8 +10,9 @@
 <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/475db9a5e5.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="firebase.js"></script>
-<script type="text/javascript" src="top2000.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.3"></script>
 <link rel="stylesheet" href="style.css">
 
@@ -20,10 +21,18 @@
 		Top2000 = new Top2000();
 	});	
 </script>
+    <div class="search-bar sticky" id="search-bar">
+        <i class="fa fa-search"></i>
+        <input type="text" id="search-box" placeholder="Search..."/>
+    </div>
 </head>
 <body>
 <div class="w-100" id="playlist"></div>
 
+<div class="float" id="search-fab">
+    <i class="fa fa-search my-float" id="search-fab-icon"></i>
+</div>
   
 </body>
+<script type="text/javascript" src="top2000.js"></script>
 </html>
