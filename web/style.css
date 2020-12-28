@@ -10,6 +10,13 @@ div.entry:nth-child(odd) {background: #FFF}
 	color:white;
 }
 
+#playlist div.entry[found="1"]{
+	animation: fade 1000ms 500ms forwards ease-out;
+
+	/*background: #dc3545;*/
+	/*color:white;*/
+}
+
 .row{
 	padding-left:25px;
 	padding-top:25px;
@@ -98,8 +105,29 @@ input[type="text"]
 	animation-fill-mode: forwards;
 }
 
+.fade {
+	animation: fade 1s 6.5s forwards;
+}
 
 @keyframes trans-in {
 	from {transform: scaleY(0);}
 	to {transform: scaleY(1);}
+}
+
+@keyframes fade {
+	25% {
+		background-color: #dc3545;
+		opacity: 0.25;
+	}
+	50% {
+		background-color: #dc3545;
+		opacity: 1;
+	}
+	75% {
+		background-color: #dc3545;
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 1;
+	}
 }

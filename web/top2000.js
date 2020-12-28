@@ -242,11 +242,17 @@ function displaySearchbar() {
 	}
 
 	function searchAll(e){
-		console.log(e.target.value)
-		let detectedInFind = detectWithFuzzy(e.target.value);
+		let searchValue = e.target.value;
 
-		current = document.getElementById("playlist").childNodes[1999-(detectedInFind.refIndex+Top2000.endind)];
-		Top2000.index=1999-(detectedInFind.refIndex+Top2000.endind);
-		document.getElementById('playlist').childNodes[Math.max(0,Top2000.index-1)].scrollIntoView();
-
+		// if(searchValue.length==0){return}
+		// if(current!=-1){
+		// 	current.setAttribute('current',"0");
+		// }
+		let detectedInFind = detectWithFuzzy(searchValue);
+		if(detectedInFind) {
+			current = document.getElementById("playlist").childNodes[1999 - (detectedInFind.refIndex + Top2000.endind)];
+			current.setAttribute('found', "1");
+			Top2000.index = 1999 - (detectedInFind.refIndex + Top2000.endind);
+			document.getElementById('playlist').childNodes[Math.max(0, Top2000.index - 1)].scrollIntoView();
+		}
 	}
