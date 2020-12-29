@@ -16,4 +16,119 @@ div.entry:nth-child(odd) {background: #FFF}
 	padding-bottom:25px;	
 }
 
-	
+#playlist div.entry[found="1"]{
+	animation: fade 1000ms 500ms forwards ease-out;
+
+	/*background: #dc3545;*/
+	/*color:white;*/
+}
+
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#dc3545;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+	margin-top:22px;
+}
+
+.float:hover{
+	cursor: pointer;
+	color: #ccc
+}
+
+.my-float:hover {
+	cursor: pointer;
+}
+.sticky{
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 999;
+}
+
+#tag-search {
+	display:none;
+}
+
+.search-icon{
+	padding:20px;
+	cursor:pointer;
+	background-color:#fff;
+	float:right;
+}
+
+.search-bar{
+	background-color:#dc3545;
+	color:#fff;
+	clear:both;
+	display: none;
+	transform: scale(0);
+	transform-origin: 100% 0%;
+}
+
+.search-bar i{
+	position:absolute;
+	font-size:30px;
+	vertical-align:middle;
+	padding:10px;
+}
+
+input[type="text"]
+{
+	width:100%;
+	height:50px;
+	font-size:30px;
+	background-color:#dc3545;
+	color:#fff;
+	border:none;
+	padding-left:50px;
+	box-sizing:border-box;
+}
+
+
+.trans-in-el{
+	animation: trans-in 300ms ease;
+	animation-fill-mode: forwards;
+}
+#tag-search:checked + div.search-bar {
+	display:block;
+	animation: trans-in 300ms ease;
+	animation-fill-mode: forwards;
+}
+
+.fade {
+	animation: fade 1s 6.5s forwards;
+}
+
+@keyframes trans-in {
+	from {transform: scaleY(0);}
+	to {transform: scaleY(1);}
+}
+
+@keyframes fade {
+	25% {
+		background-color: #dc3545;
+		opacity: 0.25;
+	}
+	50% {
+		background-color: #dc3545;
+		opacity: 1;
+	}
+	75% {
+		background-color: #dc3545;
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 1;
+	}
+}

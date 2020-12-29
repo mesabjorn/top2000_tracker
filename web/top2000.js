@@ -214,3 +214,44 @@ function performFuzzySearch(list, pattern,keys){
 		}
 		
 	}
+	
+// Elements
+document.getElementById('search-fab').addEventListener('click',displaySearchbar);
+const searchFabIcon = document.getElementById('search-fab-icon')
+const searchBar = document.getElementById("search-bar");
+
+const searchBox = document.getElementById('search-box')
+searchBox.addEventListener('input', searchAll)
+
+function displaySearchbar() {
+		if (searchBar.style.display === "block") {
+			searchBar.style.display = "none";
+			searchFabIcon.classList.add("fa-search")
+			searchFabIcon.classList.remove("fa-times")
+			searchBar.classList.remove("trans-in-el");
+			console.log("none!")
+		} else {
+			searchBar.style.display = "block";
+			searchFabIcon.classList.add("fa-times")
+			searchFabIcon.classList.remove("fa-search")
+			searchBar.classList.add("trans-in-el");
+			searchBox.focus();
+			console.log("block!")
+		}
+	}
+
+	function searchAll(e){
+		let searchValue = e.target.value;
+
+		// if(searchValue.length==0){return}
+		// if(current!=-1){
+		// 	current.setAttribute('current',"0");
+		// }
+		let detectedInFind = detectWithFuzzy(searchValue);
+		if(detectedInFind) {
+			current = document.getElementById("playlist").childNodes[1999 - (detectedInFind.refIndex + Top2000.endind)];
+			current.setAttribute('found', "1");
+			Top2000.index = 1999 - (detectedInFind.refIndex + Top2000.endind);
+			document.getElementById('playlist').childNodes[Math.max(0, Top2000.index - 1)].scrollIntoView();
+		}
+	}
