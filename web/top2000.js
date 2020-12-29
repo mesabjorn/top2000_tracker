@@ -199,10 +199,14 @@ function performFuzzySearch(list, pattern,keys){
 	};
 
 	
-	function detectWithFuzzy(a,t){		
+	function detectWithFuzzy(a,t=""){
 		let query = `${a} ${t}`;
-		
-		let alist = performFuzzySearch(Top2000.top2000.slice(Top2000.endind,Top2000.startind), query,["SONGARTIST"]);
+		let searchlist = Top2000.top2000.slice(Top2000.endind,Top2000.startind);
+		if(t.length==0){
+			query=a;
+			searchlist = Top2000.top2000; 
+		};
+		let alist = performFuzzySearch(searchlist, query,["SONGARTIST"]);		
 		
 		if(alist.length>0){
 			console.log(`Most Likely find for '${query}': '${alist[0].item.ARTIEST}-${alist[0].item.TITEL}'. Certainty: ${1/alist[0].score}`);
@@ -249,9 +253,9 @@ function displaySearchbar() {
 		// }
 		let detectedInFind = detectWithFuzzy(searchValue);
 		if(detectedInFind) {
-			current = document.getElementById("playlist").childNodes[1999 - (detectedInFind.refIndex + Top2000.endind)];
+			current = document.getElementById("playlist").childNodes[1999 - (detectedInFind.refIndex)];
 			current.setAttribute('found', "1");
-			Top2000.index = 1999 - (detectedInFind.refIndex + Top2000.endind);
+			Top2000.index = 1999 - (detectedInFind.refIndex);
 			document.getElementById('playlist').childNodes[Math.max(0, Top2000.index - 1)].scrollIntoView();
 		}
 	}
