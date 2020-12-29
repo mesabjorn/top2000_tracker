@@ -10,6 +10,7 @@ div.entry:nth-child(odd) {background: #FFF}
 	color:white;
 }
 
+<<<<<<< HEAD
 #playlist div.entry[found="1"]{
 	animation: fade 1000ms 500ms forwards ease-out;
 
@@ -17,12 +18,15 @@ div.entry:nth-child(odd) {background: #FFF}
 	/*color:white;*/
 }
 
+=======
+>>>>>>> b5eff8f8cf3620c2dd31c3729280ab62dc5ae62c
 .row{
 	padding-left:25px;
 	padding-top:25px;
 	padding-bottom:25px;	
 }
 
+<<<<<<< HEAD
 .float{
 	position:fixed;
 	width:60px;
@@ -131,3 +135,6 @@ input[type="text"]
 		opacity: 1;
 	}
 }
+=======
+	
+>>>>>>> b5eff8f8cf3620c2dd31c3729280ab62dc5ae62c

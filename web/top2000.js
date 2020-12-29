@@ -1,5 +1,10 @@
 class Top2000{
+<<<<<<< HEAD
 	constructor(){
+=======
+	
+		constructor(){
+>>>>>>> b5eff8f8cf3620c2dd31c3729280ab62dc5ae62c
 			this.loadList("2020.json").then((d)=>{
 				console.log("list loaded");
 				this.r = /[\s!@#$%^&*().,-/\\\']/g;
@@ -198,11 +203,17 @@ function performFuzzySearch(list, pattern,keys){
 	};
 
 	
+<<<<<<< HEAD
 	function detectWithFuzzy(a,t=""){
 		let query = `${a} ${t}`;
 		if(t.length == 0){
 			 query = a;
 		}
+=======
+	function detectWithFuzzy(a,t){		
+		let query = `${a} ${t}`;
+		
+>>>>>>> b5eff8f8cf3620c2dd31c3729280ab62dc5ae62c
 		let alist = performFuzzySearch(Top2000.top2000.slice(Top2000.endind,Top2000.startind), query,["SONGARTIST"]);
 		
 		if(alist.length>0){
@@ -214,6 +225,7 @@ function performFuzzySearch(list, pattern,keys){
 			return false;
 		}
 		
+<<<<<<< HEAD
 	}
 
 // Elements
@@ -255,4 +267,6 @@ function displaySearchbar() {
 			Top2000.index = 1999 - (detectedInFind.refIndex + Top2000.endind);
 			document.getElementById('playlist').childNodes[Math.max(0, Top2000.index - 1)].scrollIntoView();
 		}
+=======
+>>>>>>> b5eff8f8cf3620c2dd31c3729280ab62dc5ae62c
 	}

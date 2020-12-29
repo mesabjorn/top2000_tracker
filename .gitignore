@@ -1,2 +1,6 @@
 *.xlsx
+<<<<<<< HEAD
 /web/firebase.js
+=======
+firebase.js
+>>>>>>> b5eff8f8cf3620c2dd31c3729280ab62dc5ae62c
