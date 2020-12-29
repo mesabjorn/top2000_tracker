@@ -1,5 +1,4 @@
-lastTick = new Date();
-
+lastTick = new Date()-60000;
 
 function SetObserver(){
 	
@@ -9,7 +8,7 @@ function SetObserver(){
 	// creëer een observer instantie
 	var observer = new MutationObserver(function(mutations) {
 	mutations.forEach(function(mutation) {
-		console.log(mutation.type);	
+		//console.log(mutation.type);	
 		pushChanges();
 	});
 	});
@@ -40,10 +39,8 @@ function pushChanges(){
 		updates['/top2000/current'] = comp + " - " + track;
 		firebase.database().ref().update(updates);
 		lastTick = new Date();
-
 	}
 }
-
 observer = SetObserver();
 
 	
