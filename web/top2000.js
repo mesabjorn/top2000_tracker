@@ -3,7 +3,10 @@ class Top2000{
 		constructor(){
 			this.loadList("2020.json").then((d)=>{
 				console.log("list loaded");
-				this.r = /[\s!@#$%^&*().,-/\\\']/g;
+				this.r = /[\s!@#$%^&*.,-/\\\']/g;	// remove special characters
+				
+				this.r2 = /(\(.*\))/g;		//remove everything between brackets
+				
 				this.top2000 = d;
 
 				for(let i = 0;i<this.top2000.length;i++){
@@ -23,6 +26,7 @@ class Top2000{
 						this.startind = this.startind == undefined? 0:this.startind-1;
 						
 						this.endind = data[0][`${this.playdate.getDate()+1}-${1+this.playdate.getMonth()}-${this.playdate.getFullYear()}`]-1;
+						this.endind = this.endind==NaN?this.endind:0;			// fix for final day
 	
 						this.index = this.startind == undefined? 1999:2000-this.startind;
 					}						
@@ -86,6 +90,7 @@ class Top2000{
 			var postsref = firebase.database().ref('top2000/current');        
 			postsref.on('value', (snapshot)=> {
 				let track = snapshot.val();
+				track = track.replace(this.r2,"");
 				this.setcurrentactive(track.toLowerCase());								
 			});
 		}
