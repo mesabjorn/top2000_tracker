@@ -96,6 +96,7 @@ class Top2000{
 		}
 		
 		setcurrentactive(t){
+			if(new Date()>new Date(2021,0,01)){console.log("Top2000 ended, return here next year");return;}
 			if(t.length==0){return}
 			let tracksplit = t.split("-");
 			if(current!=-1){
@@ -117,28 +118,6 @@ class Top2000{
 				this.index+=1;
 			}
 			document.getElementById('playlist').childNodes[Math.max(0,this.index-3)].scrollIntoView();
-
-
-			// let detected=false;
-			// for(let i=this.endind;i<=this.startind;i++){
-			// 	if(this.filterTrack(this.top2000[i].ARTIEST.toLowerCase())==this.filterTrack(tracksplit[0]) && this.filterTrack(this.top2000[i].TITEL.toLowerCase())==this.filterTrack(tracksplit[1])){
-			// 		//console.log(document.getElementById('playlist').childNodes[2000-i-1].innerText);					
-			// 		document.getElementById('playlist').childNodes[2000-i-1].setAttribute('current',"1");					
-			// 		document.getElementById('playlist').childNodes[Math.max(0,2000-i-5)].scrollIntoView();
-			// 		current = document.getElementById('playlist').childNodes[2000-i-1];
-			// 		detected=true;
-			// 		this.index=2000-i-1;
-			// 		break;			
-			// 	}
-			// }
-			// if(detected==false && this.playdate>new Date(2020,11,25)){
-			// 	console.log("Undetected track moving to automatic next!");
-			// 	document.getElementById('playlist').childNodes[this.index+1].setAttribute('current',"1");
-			// 	current = document.getElementById('playlist').childNodes[this.index+1];
-			// 	document.getElementById('playlist').childNodes[Math.max(0,this.index-5)].scrollIntoView();
-
-			// 	this.index+=1;
-			// }
 		}
 		
 		 filterTrack(text){
