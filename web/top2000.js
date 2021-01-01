@@ -96,13 +96,15 @@ class Top2000{
 		}
 		
 		setcurrentactive(t){
-			if(new Date()>new Date(2021,0,01)){console.log("Top2000 ended, return here next year");return;}
+			if(new Date()>new Date(2021,0,1)){
+				console.log("Top2000 ended, return here next year");
+				return
+			}
 			if(t.length==0){return}
 			let tracksplit = t.split("-");
 			if(current!=-1){
 				current.setAttribute('current',"0");
-			}
-			//console.log(tracksplit);
+			}			
 
 			let detected = detectWithFuzzy(tracksplit[0].trim(),tracksplit[1].trim());
 			console.log(detected);
